@@ -33,3 +33,12 @@
     with_items:
         - httpd
         - mysqld
+
+  - name: Index file copying
+    copy:
+      src: ./index.html
+      dest: "{{doc_root}}"
+      owner: apache
+      group: apache
+      mode: 0644
+    notify: httpd restarted
