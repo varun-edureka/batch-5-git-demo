@@ -1,0 +1,29 @@
+---
+- hosts: client-server
+  connection: ssh
+  become: yes
+  vars:
+    doc_root: /var/www/html/
+  tasks:
+
+  - name: Install httpd and other tools
+    yum:
+        name: "{{item}}"
+        state: present
+    with_items:
+        - htop
+        - elinks
+        - ntp
+        - php
+        - mysql-server
+        - mysql
+
+
+
+  - name: start httpd amd mysql service
+    service:
+        name: "{{item}}"
+        state: restarted
+    with_items:
+        - mysqld
+
