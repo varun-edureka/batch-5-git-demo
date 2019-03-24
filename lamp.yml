@@ -26,4 +26,10 @@
         state: restarted
     with_items:
         - mysqld
-
+  - name: Enabled httpd & mysqldservice
+    service:
+        name: "{{item}}"
+        enabled: yes
+    with_items:
+        - httpd
+        - mysqld
