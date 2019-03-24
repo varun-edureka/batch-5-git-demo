@@ -1,4 +1,5 @@
 ---
+#This file will installed the LAMP
 - hosts: client-server
   connection: ssh
   become: yes
