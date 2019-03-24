@@ -42,3 +42,10 @@
       group: apache
       mode: 0644
     notify: httpd restarted
+
+
+  handlers:
+  - name: httpd restarted
+    service:
+        name: httpd
+        state: restarted
